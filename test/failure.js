@@ -20,4 +20,22 @@ describe('failure test', function(){
         assert.deepEqual(ch.getBody(),{});
     });
 
+    it('getBestSize with split under 0 (negative number) will throw error', function(){
+        assert.throws(function() {
+            ch.getBestSize(str.length,-1)
+        }, Error, "Split value must be between 1-5");
+    });
+    
+    it('getBestSize with split 0 will throw error', function(){
+        assert.throws(function() {
+            ch.getBestSize(str.length,0)
+        }, Error, "Split value must be between 1-5");
+    });
+
+    it('getBestSize with split more than 5 will throw error', function(){
+        assert.throws(function() {
+            ch.getBestSize(str.length,6)
+        }, Error, "Split value must be between 1-5");
+    });
+
 });

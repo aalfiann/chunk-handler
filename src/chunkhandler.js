@@ -71,6 +71,48 @@ class ChunkHandler {
     }
 
     /**
+     * Get best size to chunk
+     * @param {int|string} length       this is the maximum array/string length number
+     * @param {int|string} split        [optional] split value will create maximum (value*10) means if split is 3 then will make array length not more than 30
+     * @return {int} 
+     */
+    getBestSize(length,split=3) {
+        length = parseInt(length);
+        split = parseInt(split);
+        if(split < 1 || split > 5) throw new Error('Split value must be between 1-5');
+        var max = (split * 10);
+        var start = (max-(Math.ceil(max/10)));
+        var slice = (max-start);
+        switch(true) {
+            case (length <= 1000000 && length > 750000):
+                return Math.ceil(length/(max-(slice * 1)));
+            case (length <= 750000 && length > 500000):
+                return Math.ceil(length/(max-(slice * 2)));
+            case (length <= 500000 && length > 250000):
+                return Math.ceil(length/(max-(slice * 3)));
+            case (length <= 250000 && length > 100000):
+                return Math.ceil(length/(max-(slice * 4)));
+            case (length <= 100000 && length > 75000):
+                return Math.ceil(length/(max-(slice * 5)));
+            case (length <= 75000 && length > 50000):
+                return Math.ceil(length/(max-(slice * 6)));
+            case (length <= 50000 && length > 25000):
+                return Math.ceil(length/(max-(slice * 7)));
+            case (length <= 25000 && length > 10000):
+                return Math.ceil(length/(max-(slice * 8)));
+            case (length <= 10000 && length > 5000):
+                return Math.ceil(length/(max-(slice * 9)));
+            case (length <= 5000 && length > 1000):
+                return Math.ceil(length/2);
+            case (length <= 1000 && length > 1):
+                return Math.ceil(length/1);
+            default:
+                return Math.ceil(length/max);
+        }
+    }
+    
+
+    /**
      * Make value to be chunked
      * @param {string|array} value      this is value to be chunked
      * @param {string|int} size         [optional] if value is type string then size will make split from letters per size number
