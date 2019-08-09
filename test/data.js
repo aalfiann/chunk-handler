@@ -96,15 +96,23 @@ describe('store data test', function(){
 
     it('add data without part still can be saved', function(){
         ch.add('xxx','abc');
-        assert.deepEqual(ch.get('xxx'),[{ part: null, data: 'abc' }]);
+        assert.deepEqual(ch.get('xxx'),[{ data: 'abc' }]);
     });
 
-    it('merge data without part is no problem', function(){
+    it('merge data with nulled part is no problem', function(){
         assert.equal(ch.merge([{ part: null, data: 'abc' },{ part: null, data: 'def' }]),'abcdef');
     });
 
-    it('merge data without part can not be sorted', function(){
+    it('merge data with nulled part can not be sorted', function(){
         assert.equal(ch.merge([{ part: null, data: 'def' },{ part: null, data: 'abc' }]),'defabc');
+    });
+
+    it('merge data without part is no problem', function(){
+        assert.equal(ch.merge([{ data: 'abc' },{ data: 'def' }]),'abcdef');
+    });
+
+    it('merge data without part can not be sorted', function(){
+        assert.equal(ch.merge([{ data: 'def' },{ data: 'abc' }]),'defabc');
     });
 
     it('merge data with part will be sorted automatically', function(){

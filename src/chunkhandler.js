@@ -119,14 +119,16 @@ class ChunkHandler {
      * @return {array}
      */
     make(value,size=100) {
-        // default size to 100 item array or 100 chars string
         size = parseInt(size);
 
         if(!this.isString(value) && !this.isArray(value)) throw new Error('Value must be string or array');
 
         if(this.isString(value)) {
-            var reg = new RegExp('.{1,' + size + '}', 'g');
-            return value.match(reg);
+            var numChunks = value.length / size + .5 | 0, chunks = new Array(numChunks);
+            for(var i = 0, o = 0; i < numChunks; ++i, o += size) {
+                chunks[i] = value.substr(o, size);
+            }
+            return chunks;
         } else {
             var result = [];
             // add each chunk to the result
@@ -134,15 +136,15 @@ class ChunkHandler {
                 var start = x * size;
                 var end = start + size;
                 result.push(value.slice(start, end));
-            }      
+            }
             return result;
         }
     }
 
     /**
      * Merge data chunked
-     * @param {*} data      data is an array from this.get(name) 
-     * @return {mixed}      could be string or array
+     * @param {object} data     data is an array from this.get(name) 
+     * @return {mixed}          could be string or array
      */
     merge(data) {
         if(!this.isArray(data) && this.isEmptyArray(data)) return '';
@@ -177,12 +179,21 @@ class ChunkHandler {
     add(name,data,part=null) {
         if(this.isString(name)) {
             if(data) {
-                if(part) part = parseInt(part);
-                if(this.isEmpty(this.body[name])) {
-                    this.body[name] = [];
-                    this.body[name].push({'part':part,'data':data});
+                if(part) {
+                    part = parseInt(part);
+                    if(this.isEmpty(this.body[name])) {
+                        this.body[name] = [];
+                        this.body[name].push({'part':part,'data':data});
+                    } else {
+                        this.body[name].push({'part':part,'data':data});
+                    }
                 } else {
-                    this.body[name].push({'part':part,'data':data});
+                    if(this.isEmpty(this.body[name])) {
+                        this.body[name] = [];
+                        this.body[name].push({'data':data});
+                    } else {
+                        this.body[name].push({'data':data});
+                    }
                 }
             }
         }
