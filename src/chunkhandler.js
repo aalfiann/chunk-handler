@@ -178,6 +178,7 @@ class ChunkHandler {
      */
     add(name,data,part=null) {
         if(this.isString(name)) {
+            name = name.replace(/[^A-Z0-9]/ig, "_");
             if(data) {
                 if(part) {
                     part = parseInt(part);
@@ -207,6 +208,7 @@ class ChunkHandler {
      */
     remove(name) {
         if(this.isString(name)) {
+            name = name.replace(/[^A-Z0-9]/ig, "_");
             delete this.body[name];
         }
         return this;
@@ -226,6 +228,7 @@ class ChunkHandler {
      * @return {string} 
      */
     get(name) {
+        name = name.replace(/[^A-Z0-9]/ig, "_");
         return this.body[name];
     }
   

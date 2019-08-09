@@ -131,7 +131,7 @@ means will not create array length more than 30.
 You are able to change split number between 1-5 only.  
 
 ### Helper function
-Here is available helper function
+Here is available helper function  
 `isString(value)`  
 `isArray(value)`  
 `isObject(value)`  

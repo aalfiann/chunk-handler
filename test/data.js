@@ -94,6 +94,11 @@ describe('store data test', function(){
         assert.deepEqual(ch.getBody(),{});
     });
 
+    it('add data with name includes special chars will be sanitized', function(){
+        ch.add('xxx & #$%*()123','special chars');
+        assert.deepEqual(ch.get('xxx & #$%*()123'),[{ data: 'special chars' }]);
+    });
+
     it('add data without part still can be saved', function(){
         ch.add('xxx','abc');
         assert.deepEqual(ch.get('xxx'),[{ data: 'abc' }]);
