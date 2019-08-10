@@ -12,6 +12,12 @@ describe('chunk with string test', function(){
         assert.deepEqual(result,[ 'th', 'is', ' f', 'ru', 'it', ' i', 's ', 'ma', 'ng', 'o!' ]);
     });
 
+    it('merge from chunk back to string', function(){
+        var result = ch.make(str,2);
+        var chunk = ch.merge(result);
+        assert.deepEqual(chunk,str);
+    });
+
     it('save string to chunk handler', function(){
         var result = ch.make(str,2);
         for (let i in result) {
@@ -31,7 +37,7 @@ describe('chunk with string test', function(){
         ]);
     });
 
-    it('merge data chunked back to original string', function(){
+    it('merge saved data chunk back to original string', function(){
         assert.equal(ch.merge(ch.get('xxx')),str);
     });
 

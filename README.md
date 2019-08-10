@@ -116,19 +116,19 @@ var result = ch.merge(ch.get('yyy'));
 `ch.getBody()`
 
 #### Get Best Size before make a chunk
-Using `getBestSize(length,split=3)` if an array/string is very big (higher than 1000 chars length) and you don't know what best size to make a deal with chunk. Example case if you want to chunk encoded base64 from image or video.
+Using `getBestSize(length,split=5)` if an array/string is very big (higher than 100K chars length) and you don't know what best size to make a deal with chunk. Example case if you want to chunk encoded base64 from image or video.
 
 ```javascript
-var str = 'assume this is a big string with more than 30K chars length';
+var str = 'assume this is a big string with more than 300K chars length';
 
 var result = ch.make(str,ch.getBestSize(str.length));
 
-// Result will return an array with no more than 30 of array length.  
+// Result will return an array with no more than 50 of array length.  
 ```
 **Note:**  
-`getBaseSize(length,split=3)` default has split=3 which is will create maximum array (3*10)  
-means will not create array length more than 30.  
-You are able to change split number between 1-5 only.  
+`getBaseSize(length,split=5)` default has split=5 which is will create maximum array (5*10)  
+means will not create array length more than 50.  
+You are able to change split number between 1-10 only.  
 
 ### Helper function
 Here is available helper function  
@@ -138,8 +138,8 @@ Here is available helper function
 `isEmpty(value)`  
 `isEmptyArray(value)`  
 `isEmptyObject(value)`  
-`getBestSize(length,split=3)`  
+`getBestSize(length,split=5)`  
 
 ### Unit test
-If you want to playing arround with test
+If you want to playing arround with test  
 `npm test`

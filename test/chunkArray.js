@@ -12,6 +12,12 @@ describe('chunk with array test', function(){
         assert.deepEqual(result,[ [ 1, 2 ], [ 3, 4 ], [ 5, 6 ], [ 7, 8 ], [ 9, 10 ] ]);
     });
 
+    it('merge from chunk back to array', function(){
+        var result = ch.make(arr,2);
+        var chunk = ch.merge(result);
+        assert.deepEqual(chunk,arr);
+    });
+
     it('save array to chunk handler', function(){
         var result = ch.make(arr,2);
         for (let i in result) {
@@ -26,7 +32,7 @@ describe('chunk with array test', function(){
         ]);
     });
 
-    it('merge data chunked back to original array', function(){
+    it('merge saved data chunk back to original array', function(){
         assert.deepEqual(ch.merge(ch.get('xxx')),arr);
     });
 
