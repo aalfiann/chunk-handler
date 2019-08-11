@@ -126,19 +126,19 @@ var result = ch.make(str,ch.getBestSize(str.length));
 // Result will return an array with no more than 50 of array length.  
 ```
 **Note:**  
-`getBaseSize(length,split=5)` default has split=5 which is will create maximum array (5*10)  
-means will not create array length more than 50.  
-You are able to change split number between 1-10 only.  
+- `getBaseSize(length,split=5)` default has split=5 which is will create maximum array (5*10) means will not create array length more than 50.  
+- You are able to change split number between 1-10 only.
+- High chars length more than 10 Millions is better to use split 6-10.  
 
 ### Helper function
 Here is available helper function  
-`isString(value)`  
-`isArray(value)`  
-`isObject(value)`  
-`isEmpty(value)`  
-`isEmptyArray(value)`  
-`isEmptyObject(value)`  
-`getBestSize(length,split=5)`  
+- `isString(value)`  
+- `isArray(value)`  
+- `isObject(value)`  
+- `isEmpty(value)`  
+- `isEmptyArray(value)`  
+- `isEmptyObject(value)`  
+- `getBestSize(length,split=5)`  
 
 ### Unit test
 If you want to playing arround with test  

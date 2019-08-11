@@ -15,44 +15,67 @@ describe('chunk big data string with 147095 chars test',function() {
         assert.equal((ch.make(str,ch.getBestSize(str.length)).length<50), true);
     });
     
-    it('getBestSize with split 1 will not make any chunk because split 1 only handle max 100K chars', function(){
-        assert.equal(ch.getBestSize(str.length,1),147095);
-    });
-
-    it('getBestSize with split 2 >> 73548', function(){
-        assert.equal(ch.getBestSize(str.length,2),73548);
-    });
-
-    it('getBestSize with split 3 >> 49032', function(){
-        assert.equal(ch.getBestSize(str.length,3),49032);
-    });
-
-    it('getBestSize with split 4 >> 36774', function(){
-        assert.equal(ch.getBestSize(str.length,4),36774);
-    });
-
-    it('getBestSize with split 5 >> 29419', function(){
+    it('getBestSize with split 1 will change automatically to default split 5 because split 1 only handle max 100K chars >> size 29419 and 5 array', function(){
         assert.equal(ch.getBestSize(str.length,5),29419);
+        assert.equal(ch.make(str,ch.getBestSize(str.length,1)).length,5);
     });
 
-    it('getBestSize with split 6 >> 24516', function(){
+    it('getBestSize with split 2 >> size 73548 and 2 array', function(){
+        assert.equal(ch.getBestSize(str.length,2),73548);
+        assert.equal(ch.make(str,ch.getBestSize(str.length,2)).length,2);
+    });
+
+    it('getBestSize with split 3 >> size 49032 and 3 array', function(){
+        assert.equal(ch.getBestSize(str.length,3),49032);
+        assert.equal(ch.make(str,ch.getBestSize(str.length,3)).length,3);
+    });
+
+    it('getBestSize with split 4 >> size 36774 and 4 array', function(){
+        assert.equal(ch.getBestSize(str.length,4),36774);
+        assert.equal(ch.make(str,ch.getBestSize(str.length,4)).length,4);
+    });
+
+    it('getBestSize with split 5 >> size 29419 and 5 array', function(){
+        assert.equal(ch.getBestSize(str.length,5),29419);
+        assert.equal(ch.make(str,ch.getBestSize(str.length,5)).length,5);
+    });
+
+    it('getBestSize with split 6 >> size 24516 and 6 array', function(){
         assert.equal(ch.getBestSize(str.length,6),24516);
+        assert.equal(ch.make(str,ch.getBestSize(str.length,6)).length,6);
     });
 
-    it('getBestSize with split 7 >> 21014', function(){
+    it('getBestSize with split 7 >> size 21014 and 7 array', function(){
         assert.equal(ch.getBestSize(str.length,7),21014);
+        assert.equal(ch.make(str,ch.getBestSize(str.length,7)).length,7);
     });
 
-    it('getBestSize with split 8 >> 18387', function(){
+    it('getBestSize with split 8 >> size 18387 and 8 array', function(){
         assert.equal(ch.getBestSize(str.length,8),18387);
+        assert.equal(ch.make(str,ch.getBestSize(str.length,8)).length,8);
     });
 
-    it('getBestSize with split 9 >> 16344', function(){
+    it('getBestSize with split 9 >> size 16344 and 9 array', function(){
         assert.equal(ch.getBestSize(str.length,9),16344);
+        assert.equal(ch.make(str,ch.getBestSize(str.length,9)).length,9);
     });
 
-    it('getBestSize with split 10 >> 14710', function(){
+    it('getBestSize with split 10 >> size 14710 and 10 array', function(){
         assert.equal(ch.getBestSize(str.length,10),14710);
+        assert.equal(ch.make(str,ch.getBestSize(str.length,10)).length,10);
+    });
+
+    it('getBestSize with split more than 1 will be converted to use split 1 automatically if chars length is smaller than 100K', function(){
+        assert.equal(ch.getBestSize(18375,1),9188);
+        assert.equal(ch.getBestSize(18375,2),9188);
+        assert.equal(ch.getBestSize(18375,3),9188);
+        assert.equal(ch.getBestSize(18375,4),9188);
+        assert.equal(ch.getBestSize(18375,5),9188);
+        assert.equal(ch.getBestSize(18375,6),9188);
+        assert.equal(ch.getBestSize(18375,7),9188);
+        assert.equal(ch.getBestSize(18375,8),9188);
+        assert.equal(ch.getBestSize(18375,9),9188);
+        assert.equal(ch.getBestSize(18375,10),9188);
     });
 
 });

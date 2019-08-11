@@ -81,6 +81,7 @@ class ChunkHandler {
         split = parseInt(split);
         if(split < 1 || split > 10) throw new Error('Split value must be between 1-10');
         if(length <= 100000 && split > 1) split = 1;
+        if(length > 100000 && length <= 1000000 && split == 1) split = 5;
         var max = (split * 10);
         var start = (max-(Math.ceil(max/10)));
         var slice = (max-start);
