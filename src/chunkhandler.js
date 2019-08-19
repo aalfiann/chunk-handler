@@ -127,7 +127,7 @@ class ChunkHandler {
         if(!this.isString(value) && !this.isArray(value)) throw new Error('Value must be string or array');
 
         if(this.isString(value)) {
-            var numChunks = value.length / size + .5 | 0, chunks = new Array(numChunks);
+            var numChunks = Math.ceil(value.length / size), chunks = new Array(numChunks);
             for(var i = 0, o = 0; i < numChunks; ++i, o += size) {
                 chunks[i] = value.substr(o, size);
             }
