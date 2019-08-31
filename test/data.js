@@ -94,6 +94,12 @@ describe('store data test', function(){
         assert.deepEqual(ch.getBody(),{});
     });
 
+    it('add data with multiple name and with method chained', function(){
+        ch.add('yyy','abc').add('yyy','def').add('zzz','abc').add('zzz','def');
+        assert.deepEqual(ch.get('yyy'),[{ data: 'abc' },{ data: 'def' }]);
+        assert.deepEqual(ch.get('zzz'),[{ data: 'abc' },{ data: 'def' }]);
+    });
+
     it('add data with name includes special chars will be sanitized', function(){
         ch.add('xxx & #$%*()123','special chars');
         assert.deepEqual(ch.get('xxx & #$%*()123'),[{ data: 'special chars' }]);

@@ -55,4 +55,76 @@ describe('helper function test', function(){
         assert.equal(ch.isEmptyObject([1,2,3]),false);
     });
 
+    it('is empty object parameter value must hasOwnProperty',function(){
+        const obj = Object.create({name: 'inherited'})
+        assert.equal(true,ch.isEmptyObject(obj));
+    });
+
+    it('getBestSize split 5 with 990 chars >> size will not change', function(){
+        var value = 990;
+        var result = Math.ceil(value/ch.getBestSize(value));
+        assert.equal(true,(result<=50));
+        assert.equal(ch.getBestSize(990),990);
+    });
+
+    it('getBestSize split 5 with 90000 chars', function(){
+        var value = 90000;
+        var result = Math.ceil(value/ch.getBestSize(value));
+        assert.equal(true,(result<=50));
+    });
+
+    it('getBestSize split 5 with 900000 chars', function(){
+        var value = 900000;
+        var result = Math.ceil(value/ch.getBestSize(value));
+        assert.equal(true,(result<=50));
+    });
+
+    it('getBestSize split 5 with 1400000 chars', function(){
+        var value = 1400000;
+        var result = Math.ceil(value/ch.getBestSize(value));
+        assert.equal(true,(result<=50));
+    });
+
+    it('getBestSize split 5 with 1900000 chars', function(){
+        var value = 1900000;
+        var result = Math.ceil(value/ch.getBestSize(value));
+        assert.equal(true,(result<=50));
+    });
+
+    it('getBestSize split 5 with 2400000 chars', function(){
+        var value = 2400000;
+        var result = Math.ceil(value/ch.getBestSize(value));
+        assert.equal(true,(result<=50));
+    });
+
+    it('getBestSize split 5 with 2900000 chars', function(){
+        var value = 2900000;
+        var result = Math.ceil(value/ch.getBestSize(value));
+        assert.equal(true,(result<=50));
+    });
+
+    it('getBestSize split 5 with 3400000 chars', function(){
+        var value = 3400000;
+        var result = Math.ceil(value/ch.getBestSize(value));
+        assert.equal(true,(result<=50));
+    });
+
+    it('getBestSize split 5 with 3900000 chars', function(){
+        var value = 3900000;
+        var result = Math.ceil(value/ch.getBestSize(value));
+        assert.equal(true,(result<=50));
+    });
+
+    it('getBestSize split 5 with 4500000 chars', function(){
+        var value = 4500000;
+        var result = Math.ceil(value/ch.getBestSize(value));
+        assert.equal(true,(result<=50));
+    });
+
+    it('getBestSize split 5 with 6000000 chars', function(){
+        var value = 6000000;
+        var result = Math.ceil(value/ch.getBestSize(value));
+        assert.equal(true,(result<=50));
+    });
+
 });
