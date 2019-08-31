@@ -4,6 +4,7 @@
 [![npm version](https://img.shields.io/npm/v/chunk-handler.svg?style=flat-square)](https://www.npmjs.org/package/chunk-handler)
 [![Build Status](https://travis-ci.org/aalfiann/chunk-handler.svg?branch=master)](https://travis-ci.org/aalfiann/chunk-handler)
 [![Coverage Status](https://coveralls.io/repos/github/aalfiann/chunk-handler/badge.svg?branch=master)](https://coveralls.io/github/aalfiann/chunk-handler?branch=master)
+[![Known Vulnerabilities](https://snyk.io//test/github/aalfiann/chunk-handler/badge.svg?targetFile=package.json)](https://snyk.io//test/github/aalfiann/chunk-handler?targetFile=package.json)
 ![NPM download/month](https://img.shields.io/npm/dm/chunk-handler.svg)
 ![NPM download total](https://img.shields.io/npm/dt/chunk-handler.svg)  
 The Chunk Handler for string and array object in NodeJS
