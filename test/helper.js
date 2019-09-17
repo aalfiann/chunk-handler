@@ -39,17 +39,17 @@ describe('helper function test', function(){
 
     it('is empty array', function() {
         assert.equal(ch.isEmptyArray([]),true);
-        assert.equal(ch.isEmptyArray({}),true);
-        assert.equal(ch.isEmptyArray({id:1}),true);
-        assert.equal(ch.isEmptyArray('1'),true);
-        assert.equal(ch.isEmptyArray(1),true);
+        assert.equal(ch.isEmptyArray({}),false);
+        assert.equal(ch.isEmptyArray({id:1}),false);
+        assert.equal(ch.isEmptyArray('1'),false);
+        assert.equal(ch.isEmptyArray(1),false);
         assert.equal(ch.isEmptyArray([1,2,3]),false);
     });
 
-    it('is empty object also can be use to check empty array', function() {
-        assert.equal(ch.isEmptyObject([]),true);
+    it('is empty object', function() {
         assert.equal(ch.isEmptyObject({}),true);
-        assert.equal(ch.isEmptyObject(1),true);
+        assert.equal(ch.isEmptyObject([]),false);
+        assert.equal(ch.isEmptyObject(1),false);
         assert.equal(ch.isEmptyObject({id:1}),false);
         assert.equal(ch.isEmptyObject('1'),false);
         assert.equal(ch.isEmptyObject([1,2,3]),false);

@@ -54,7 +54,7 @@ class ChunkHandler {
      * @return {bool}
      */
     isEmptyArray(value) {
-        return (!Array.isArray(value) || !value.length);
+        return (value === undefined || value.length == 0);
     }
 
     /**
@@ -63,11 +63,7 @@ class ChunkHandler {
      * @return {bool}
      */
     isEmptyObject(value) {
-        for(var key in value) {
-            if(value.hasOwnProperty(key))
-                return false;
-        }
-        return true;
+        return Object.keys(value).length === 0 && value.constructor === Object;
     }
 
     /**
@@ -135,7 +131,8 @@ class ChunkHandler {
         } else {
             var result = [];
             // add each chunk to the result
-            for (var x = 0; x < Math.ceil(value.length / size); x++) {
+            var len = Math.ceil(value.length / size);
+            for (var x = 0; x < len; x++) {
                 var start = x * size;
                 var end = start + size;
                 result.push(value.slice(start, end));
@@ -165,7 +162,8 @@ class ChunkHandler {
                 var file = '';
             }
             
-            for(var i=0;i<data.length;i++) {
+            var len = data.length;
+            for(var i=0;i<len;i++) {
                 if(this.isArray(data[i].data)) {
                     file = file.concat(data[i].data);
                 } else {
@@ -180,7 +178,8 @@ class ChunkHandler {
                 var file = '';
             }
 
-            for(let i in data) {
+            var len = data.length;
+            for(var i=0;i<len;i++) {
                 if(this.isArray(data[i])) {
                     file = file.concat(data[i]);
                 } else {
