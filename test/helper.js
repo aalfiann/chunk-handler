@@ -30,6 +30,8 @@ describe('helper function test', function(){
     });
 
     it('is empty string', function() {
+        assert.equal(ch.isEmpty(undefined),true);
+        assert.equal(ch.isEmpty(null),true);
         assert.equal(ch.isEmpty(''),true);
         assert.equal(ch.isEmpty('abc'),false);
         assert.equal(ch.isEmpty(1),false);
@@ -38,6 +40,8 @@ describe('helper function test', function(){
     });
 
     it('is empty array', function() {
+        assert.equal(ch.isEmptyArray(undefined),true);
+        assert.equal(ch.isEmptyArray(null),true);
         assert.equal(ch.isEmptyArray([]),true);
         assert.equal(ch.isEmptyArray({}),false);
         assert.equal(ch.isEmptyArray({id:1}),false);
@@ -47,6 +51,8 @@ describe('helper function test', function(){
     });
 
     it('is empty object', function() {
+        assert.equal(ch.isEmptyObject(undefined),true);
+        assert.equal(ch.isEmptyObject(null),true);
         assert.equal(ch.isEmptyObject({}),true);
         assert.equal(ch.isEmptyObject([]),false);
         assert.equal(ch.isEmptyObject(1),false);

@@ -54,7 +54,7 @@ class ChunkHandler {
      * @return {bool}
      */
     isEmptyArray(value) {
-        return (value === undefined || value.length == 0);
+        return (value === undefined || value === null || value.length == 0);
     }
 
     /**
@@ -63,7 +63,7 @@ class ChunkHandler {
      * @return {bool}
      */
     isEmptyObject(value) {
-        return Object.keys(value).length === 0 && value.constructor === Object;
+        return ((value === undefined || value === null) || (Object.keys(value).length === 0 && value.constructor === Object));
     }
 
     /**
