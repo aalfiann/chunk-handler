@@ -15,7 +15,7 @@ describe('asynchronous test', function(){
             var time = chunk.blockingTest();
             // console.log('Blocking start at: '+time);
             // console.log('Blocking ended at: '+Date.now());
-            // assert.equal(outside,time);
+            assert.equal((outside <= time),true);
             done();
         });
         var start = Date.now();

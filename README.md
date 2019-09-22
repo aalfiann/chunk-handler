@@ -145,6 +145,9 @@ ch.promisify((builder) => {return builder}).then((chunk) => {
     // just print output
     console.log(result);
 
+    // result
+    // [ 'th', 'is', ' f', 'ru', 'it', ' i', 's ', 'ma', 'ng', 'o!' ]
+
     // or if you want to save into memory
     var len = result.length;
     var i = 0;
@@ -155,7 +158,7 @@ ch.promisify((builder) => {return builder}).then((chunk) => {
     // print output from saved memory
     console.log(chunk.get('xxx'));
     
-    // output is same
+    // output
     // [
     //     { part: 0, data: 'th' },
     //     { part: 1, data: 'is' },

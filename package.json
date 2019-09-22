@@ -1,6 +1,6 @@
 {
   "name": "chunk-handler",
-  "version": "1.1.11",
+  "version": "1.1.12",
   "description": "The Chunk Handler for string and array object in NodeJS",
   "main": "src/chunkhandler.js",
   "scripts": {
@@ -13,14 +13,15 @@
   },
   "keywords": [
     "chunk",
-    "handler"
+    "chunk-async",
+    "chunk-handler"
   ],
   "author": "M ABD AZIZ ALFIAN",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/aalfiann/chunk-handler/issues"
   },
-  "homepage": "https://github.com/aalfiann/chunk-handler",
+  "homepage": "https://github.com/aalfiann/chunk-handler#readme",
   "devDependencies": {
     "coveralls": "^3.0.6",
     "mocha": "^6.2.0",
