@@ -20,7 +20,8 @@ describe('chunk with array test', function(){
 
     it('save array to chunk handler', function(){
         var result = ch.make(arr,2);
-        for (let i in result) {
+        var i = 0, len = result.length;
+        for (i;i<len;i++) {
             ch.add('xxx',result[i],i);
         };
         assert.deepEqual(ch.get('xxx'),[
@@ -38,9 +39,13 @@ describe('chunk with array test', function(){
 
     it('add new and save another array chunk', function(){
         var result = ch.make(another,2);
-        for (let i in result) {
+        var len = result.length;
+        var i = 0;
+        
+        for (i;i<len;i++) {
             ch.add('yyy',result[i],i);
         };
+
         assert.deepEqual(ch.get('yyy'),[
             { part: 0, data: [ 123, 4 ] },
             { part: 1, data: [ 56, 7 ] },

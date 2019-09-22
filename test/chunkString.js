@@ -20,7 +20,9 @@ describe('chunk with string test', function(){
 
     it('save string to chunk handler', function(){
         var result = ch.make(str,2);
-        for (let i in result) {
+        var len = result.length;
+        var i = 0;
+        for(i;i<len;i++) {
             ch.add('xxx',result[i],i);
         };
         assert.deepEqual(ch.get('xxx'),[
@@ -43,7 +45,9 @@ describe('chunk with string test', function(){
 
     it('add new and save another string chunk', function(){
         var result = ch.make(another,2);
-        for (let i in result) {
+        var len = result.length;
+        var i =0;
+        for (i;i<len;i++) {
             ch.add('yyy',result[i],i);
         };
         assert.deepEqual(ch.get('yyy'),[

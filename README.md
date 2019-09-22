@@ -35,7 +35,9 @@ var result = ch.make(str,2);
 ```javascript
 var str = 'this fruit is mango!';
 var result = ch.make(str,2);
-for (let i in result) {
+var len = result.length;
+var i = 0;
+for (i;i<len;i++) {
     ch.add('xxx',result[i],i);
 };
 ```
@@ -81,7 +83,8 @@ var result = ch.make(arr,2);
 ```javascript
 var arr = [1,2,3,4,5,6,7,8,9,10];
 var result = ch.make(arr,2);
-for (let i in result) {
+var i = 0, len = result.length;
+for (i; i < len; i++) {
     ch.add('yyy',result[i],i);
 };
 ```
@@ -132,6 +135,42 @@ var result = ch.make(str,ch.getBestSize(str.length));
 - You are able to change split number between 1-10 only.
 - High chars length more than 10 Millions is better to use split 6-10.  
 
+### Asynchronous
+`chunk-handler` is synchronous as default, but if you worry about blocking event loop when handling big data, we have built-in `promisify()`.  
+All you have to do is just wrap your code like this :
+```javascript
+ch.promisify((builder) => {return builder}).then((chunk) => {
+    var result = chunk.make(str,2);
+
+    // just print output
+    console.log(result);
+
+    // or if you want to save into memory
+    var len = result.length;
+    var i = 0;
+    for (i;i<len;i++) {
+        chunk.add('xxx',result[i],i);
+    };
+
+    // print output from saved memory
+    console.log(chunk.get('xxx'));
+    
+    // output is same
+    // [
+    //     { part: 0, data: 'th' },
+    //     { part: 1, data: 'is' },
+    //     { part: 2, data: ' f' },
+    //     { part: 3, data: 'ru' },
+    //     { part: 4, data: 'it' },
+    //     { part: 5, data: ' i' },
+    //     { part: 6, data: 's ' },
+    //     { part: 7, data: 'ma' },
+    //     { part: 8, data: 'ng' },
+    //     { part: 9, data: 'o!' }
+    // ]
+});
+```
+
 ### Helper function
 Here is available helper function  
 - `isString(value)`  
@@ -141,6 +180,7 @@ Here is available helper function
 - `isEmptyArray(value)`  
 - `isEmptyObject(value)`  
 - `getBestSize(length,split=5)`  
+- `blockingTest(ms=1000)`
 
 ### Unit test
 If you want to playing arround with test  

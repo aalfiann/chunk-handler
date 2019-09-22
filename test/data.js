@@ -12,15 +12,22 @@ describe('store data test', function(){
         var data1 = ch.make(str,2);
         var data2 = ch.make(arr,2);
         var data3 = ch.make(arr2,2);
-        for (let i in data1) {
-            ch.add('aaa',data1[i],i);
+        
+        var x = 0, len_data1 = data1.length;
+        for (x;x<len_data1;x++) {
+            ch.add('aaa',data1[x],x);
         };
-        for (let i in data2) {
-            ch.add('bbb',data2[i],i);
+
+        var y = 0, len_data2 = data2.length;
+        for (y;y<len_data2;y++) {
+            ch.add('bbb',data2[y],y);
         };
-        for (let i in data3) {
-            ch.add('ccc',data3[i],i);
+
+        var z = 0, len_data3 = data3.length;
+        for (z;z<len_data3;z++) {
+            ch.add('ccc',data3[z],z);
         };
+        
         assert.deepEqual(ch.get('aaa'),[
             { part: 0, data: 'th' },
             { part: 1, data: 'is' },
