@@ -1,8 +1,15 @@
-/**
- * Chunk Handler
+/*!
+ * ChunkHandler v1.1.13
+ * https://github.com/aalfiann/chunk-handler
+ *
+ * Copyright 2019 M ABD AZIZ ALFIAN
+ * Released under the MIT license
+ * https://github.com/aalfiann/chunk-handler/blob/master/LICENSE
  */
-'use strict';
-
+"use strict";
+/**
+ * Chunk Handler Class
+ */
 class ChunkHandler {
 
     /**
@@ -293,4 +300,4 @@ class ChunkHandler {
 
 }
 
-module.exports = ChunkHandler;
+if(typeof window === "undefined") module.exports = ChunkHandler;
