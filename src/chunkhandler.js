@@ -1,5 +1,5 @@
 /*!
- * ChunkHandler v1.1.13
+ * ChunkHandler ES6 v1.2.0 [NodeJS or Browser]
  * https://github.com/aalfiann/chunk-handler
  *
  * Copyright 2019 M ABD AZIZ ALFIAN

@@ -16,7 +16,19 @@ $ npm install chunk-handler
 
 **Or simply use in Browser with CDN**
 ```html
-<script src="https://cdn.jsdelivr.net/npm/chunk-handler@1.1.13/src/chunkhandler.min.js"></script>
+<!-- Always get the latest version -->
+<!-- Not recommended for production sites! -->
+<script src="https://cdn.jsdelivr.net/npm/chunk-handler/dist/chunkhandler.min.js"></script>
+
+<!-- Get minor updates and patch fixes within a major version -->
+<script src="https://cdn.jsdelivr.net/npm/chunk-handler@1/dist/chunkhandler.min.js"></script>
+
+<!-- Get patch fixes within a minor version -->
+<script src="https://cdn.jsdelivr.net/npm/chunk-handler@1.2/dist/chunkhandler.min.js"></script>
+
+<!-- Get a specific version -->
+<!-- Recommended for production sites! -->
+<script src="https://cdn.jsdelivr.net/npm/chunk-handler@1.2.0/dist/chunkhandler.min.js"></script>
 ```
 
 ## Usage
