@@ -181,23 +181,23 @@ class ChunkHandler {
      * @param {int} numberOfChunks  the number of chunks that will be created 
      */
     makeAleatory(value, numberOfChunks) {
-        let array = value;
-        let result = new Array();
-        let chunkSize = parseInt(value.length / numberOfChunks);
+        var array = value;
+        var result = new Array();
+        var chunkSize = parseInt(value.length / numberOfChunks);
 
-        let chunkIndex = 0;
+        var chunkIndex = 0;
         for (chunkIndex = 0; chunkIndex < numberOfChunks; chunkIndex++) {
-            result[chunkIndex] = [];
-            for (let itemIndex = 0; itemIndex < chunkSize; itemIndex++) {
+            result[parseInt(chunkIndex)] = [];
+            for (var itemIndex = 0; itemIndex < chunkSize; itemIndex++) {
                 // Gets a random index to be included in the chunk
-                let randomIndex = this.getRandomInt(0, array.length-1);
+                var randomIndex = this.getRandomInt(0, array.length-1);
                 // Inserts the item and remove it from array
                 result[chunkIndex].push(array.splice(randomIndex, 1)[0]);
             }
         }
         // Add the remaining items
         if (array.length > 0) {
-            result[chunkIndex-1].push(...array);
+            result[parseInt(chunkIndex-1)].push(...array);
         }
         return result;
     }
