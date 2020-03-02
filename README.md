@@ -96,6 +96,15 @@ var result = ch.make(arr,2);
 // [ [ 1, 2 ], [ 3, 4 ], [ 5, 6 ], [ 7, 8 ], [ 9, 10 ] ]
 ```
 
+#### Make Aleatory Chunks
+```javascript
+var arr = [1,2,3,4,5,6,7,8,9,10];
+var result = ch.makeAleatory(arr,2);
+
+// Result
+// [ [ 3, 5, 10, 8, 7], [2, 1, 4, 9, 6 ] ]
+```
+
 #### Save chunk to memory
 ```javascript
 var arr = [1,2,3,4,5,6,7,8,9,10];
