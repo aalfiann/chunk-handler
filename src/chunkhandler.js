@@ -182,7 +182,7 @@ class ChunkHandler {
      */
     makeAleatory(value, numberOfChunks) {
         let array = value;
-        let result = [];
+        let result = new Array();
         let chunkSize = parseInt(value.length / numberOfChunks);
 
         let chunkIndex = 0;

@@ -101,7 +101,7 @@ var result = ch.make(arr,2);
 var arr = [1,2,3,4,5,6,7,8,9,10];
 var result = ch.makeAleatory(arr,2);
 
-// Result
+// Result could be (every time you run it, will get different results)
 // [ [ 3, 5, 10, 8, 7], [2, 1, 4, 9, 6 ] ]
 ```
 
