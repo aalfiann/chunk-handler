@@ -1,5 +1,5 @@
 /*!
- * ChunkHandler ES5 v1.2.0 [Browser]
+ * ChunkHandler ES5 v1.3.0 [Browser]
  * https://github.com/aalfiann/chunk-handler
  *
  * Copyright 2019 M ABD AZIZ ALFIAN
@@ -7,8 +7,11 @@
  * https://github.com/aalfiann/chunk-handler/blob/master/LICENSE
  */
 "use strict";
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 function _instanceof(left, right) { if (right != null && typeof Symbol !== "undefined" && right[Symbol.hasInstance]) { return !!right[Symbol.hasInstance](left); } else { return left instanceof right; } }
 function _classCallCheck(instance, Constructor) { if (!_instanceof(instance, Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -98,21 +101,22 @@ var ChunkHandler = function () {
       }
     }
   }, {
+    key: "getRandomInt", value: function getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+  }, {
     key: "make", value: function make(value) {
       var size = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 100;
       size = parseInt(size);
       if (!this.isString(value) && !this.isArray(value)) throw new Error('Value must be string or array');
       if (this.isString(value)) {
-        var i = 0,
-            o = 0,
-            numChunks = Math.ceil(value.length / size),
-            chunks = new Array(numChunks);
+        var i = 0, o = 0, numChunks = Math.ceil(value.length / size), chunks = new Array(numChunks);
         for (i, o; i < numChunks; ++i, o += size) {
           chunks[i] = value.substr(o, size);
         }
         return chunks;
       } else {
-        var result = []; // add each chunk to the result
+        var result = [];
         var x = 0, len = Math.ceil(value.length / size);
         for (x; x < len; x++) {
           var start = x * size;
@@ -121,6 +125,25 @@ var ChunkHandler = function () {
         }
         return result;
       }
+    }
+  }, {
+    key: "makeAleatory", value: function makeAleatory(value, numberOfChunks) {
+      var array = value;
+      var result = new Array();
+      var chunkSize = parseInt(value.length / numberOfChunks, 10);
+      var chunkIndex = 0;
+      for (chunkIndex = 0; chunkIndex < numberOfChunks; chunkIndex++) {
+        result[parseInt(chunkIndex, 10)] = [];
+        for (var itemIndex = 0; itemIndex < chunkSize; itemIndex++) {
+          var randomIndex = this.getRandomInt(0, array.length - 1);
+          result[parseInt(chunkIndex, 10)].push(array.splice(randomIndex, 1)[0]);
+        }
+      }
+      if (array.length > 0) {
+        var _result$parseInt;
+        (_result$parseInt = result[parseInt(chunkIndex - 1, 10)]).push.apply(_result$parseInt, _toConsumableArray(array));
+      }
+      return result;
     }
   }, {
     key: "merge", value: function merge(data) {
