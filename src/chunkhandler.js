@@ -137,6 +137,15 @@ class ChunkHandler {
     }
 
     /**
+     * Get random number between min and max values
+     * @param {int} min min random value (included)
+     * @param {int} max max random value (included)
+     */
+    getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) ) + min;
+    }
+
+    /**
      * Make value to be chunked
      * @param {string|array} value      this is value to be chunked
      * @param {string|int} size         [optional] if value is type string then size will make split from letters per size number
@@ -164,6 +173,33 @@ class ChunkHandler {
             }
             return result;
         }
+    }
+
+    /**
+     * Make aleatory chunks from value
+     * @param {array} value         this is the array to be aleatory chunked 
+     * @param {int} numberOfChunks  the number of chunks that will be created 
+     */
+    makeAleatory(value, numberOfChunks) {
+        var array = value;
+        var result = new Array();
+        var chunkSize = parseInt(value.length / numberOfChunks, 10);
+
+        var chunkIndex = 0;
+        for (chunkIndex = 0; chunkIndex < numberOfChunks; chunkIndex++) {
+            result[parseInt(chunkIndex, 10)] = [];
+            for (var itemIndex = 0; itemIndex < chunkSize; itemIndex++) {
+                // Gets a random index to be included in the chunk
+                var randomIndex = this.getRandomInt(0, array.length-1);
+                // Inserts the item and remove it from array
+                result[parseInt(chunkIndex, 10)].push(array.splice(randomIndex, 1)[0]);
+            }
+        }
+        // Add the remaining items
+        if (array.length > 0) {
+            result[parseInt(chunkIndex-1, 10)].push(...array);
+        }
+        return result;
     }
 
     /**
