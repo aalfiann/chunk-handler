@@ -1,6 +1,6 @@
 {
   "name": "chunk-handler",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "The Chunk Handler for string and array object in NodeJS or Browser",
   "main": "src/chunkhandler.js",
   "scripts": {
