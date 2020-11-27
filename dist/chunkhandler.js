@@ -1,4 +1,4 @@
-/* ChunkHandler v1.3.3 | (c) 2020 M ABD AZIZ ALFIAN | MIT License | https://github.com/aalfiann/chunk-handler */
+/* ChunkHandler v1.3.4 | (c) 2020 M ABD AZIZ ALFIAN | MIT License | https://github.com/aalfiann/chunk-handler */
 "use strict";
 /**
  * Chunk Handler Class
