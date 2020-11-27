@@ -1,11 +1,4 @@
-/*!
- * ChunkHandler ES6 v1.2.0 [NodeJS or Browser]
- * https://github.com/aalfiann/chunk-handler
- *
- * Copyright 2019 M ABD AZIZ ALFIAN
- * Released under the MIT license
- * https://github.com/aalfiann/chunk-handler/blob/master/LICENSE
- */
+/* ChunkHandler v1.3.1 | (c) 2020 M ABD AZIZ ALFIAN | MIT License | https://github.com/aalfiann/chunk-handler */
 "use strict";
 /**
  * Chunk Handler Class
@@ -34,6 +27,9 @@ class ChunkHandler {
      * @return {bool}
      */
     isArray (value) {
+        if (value===undefined || value === '') {
+            return false;
+        }
         return value && typeof value === 'object' && value.constructor === Array;
     }
 
@@ -43,6 +39,9 @@ class ChunkHandler {
      * @return {bool}
      */
     isObject (value) {
+        if (value===undefined || value === '') {
+            return false;
+        }
         return value && typeof value === 'object' && value.constructor === Object;
     }
 

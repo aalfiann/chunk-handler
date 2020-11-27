@@ -6,7 +6,8 @@
 [![Coverage Status](https://coveralls.io/repos/github/aalfiann/chunk-handler/badge.svg?branch=master)](https://coveralls.io/github/aalfiann/chunk-handler?branch=master)
 [![Known Vulnerabilities](https://snyk.io//test/github/aalfiann/chunk-handler/badge.svg?targetFile=package.json)](https://snyk.io//test/github/aalfiann/chunk-handler?targetFile=package.json)
 ![NPM download/month](https://img.shields.io/npm/dm/chunk-handler.svg)
-![NPM download total](https://img.shields.io/npm/dt/chunk-handler.svg)  
+![NPM download total](https://img.shields.io/npm/dt/chunk-handler.svg)
+[![](https://data.jsdelivr.com/v1/package/npm/chunk-handler/badge)](https://www.jsdelivr.com/package/npm/chunk-handler)  
 The Chunk Handler for string and array object in NodeJS or Browser.
 
 ## Install using NPM
@@ -28,7 +29,7 @@ $ npm install chunk-handler
 
 <!-- Get a specific version -->
 <!-- Recommended for production sites! -->
-<script src="https://cdn.jsdelivr.net/npm/chunk-handler@1.3.0/dist/chunkhandler.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chunk-handler@1.3.1/dist/chunkhandler.min.js"></script>
 ```
 
 ## Usage

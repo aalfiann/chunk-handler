@@ -14,7 +14,7 @@ describe("chunk with array aleatory test", function(){
                 throw new Error(`The item ${element} was not found on any chunk`);
             }
         });
-        assert.equal(result.length, 2);
+        assert.strictEqual(result.length, 2);
     });
 
     it("make array to chunk aleatory with remaining items", function(){
@@ -26,6 +26,6 @@ describe("chunk with array aleatory test", function(){
                 throw new Error(`The item ${element} was not found on any chunk`);
             }
         });
-        assert.equal(result.length, 2);
+        assert.strictEqual(result.length, 2);
     });
 });

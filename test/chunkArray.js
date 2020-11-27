@@ -9,13 +9,13 @@ describe('chunk with array test', function(){
     
     it('make array to chunk', function(){
         var result = ch.make(arr,2);
-        assert.deepEqual(result,[ [ 1, 2 ], [ 3, 4 ], [ 5, 6 ], [ 7, 8 ], [ 9, 10 ] ]);
+        assert.deepStrictEqual(result,[ [ 1, 2 ], [ 3, 4 ], [ 5, 6 ], [ 7, 8 ], [ 9, 10 ] ]);
     });
 
     it('merge from chunk back to array', function(){
         var result = ch.make(arr,2);
         var chunk = ch.merge(result);
-        assert.deepEqual(chunk,arr);
+        assert.deepStrictEqual(chunk,arr);
     });
 
     it('save array to chunk handler', function(){
@@ -24,7 +24,7 @@ describe('chunk with array test', function(){
         for (i;i<len;i++) {
             ch.add('xxx',result[i],i);
         };
-        assert.deepEqual(ch.get('xxx'),[
+        assert.deepStrictEqual(ch.get('xxx'),[
             { part: 0, data: [ 1, 2 ] },
             { part: 1, data: [ 3, 4 ] },
             { part: 2, data: [ 5, 6 ] },
@@ -34,7 +34,7 @@ describe('chunk with array test', function(){
     });
 
     it('merge saved data chunk back to original array', function(){
-        assert.deepEqual(ch.merge(ch.get('xxx')),arr);
+        assert.deepStrictEqual(ch.merge(ch.get('xxx')),arr);
     });
 
     it('add new and save another array chunk', function(){
@@ -46,7 +46,7 @@ describe('chunk with array test', function(){
             ch.add('yyy',result[i],i);
         };
 
-        assert.deepEqual(ch.get('yyy'),[
+        assert.deepStrictEqual(ch.get('yyy'),[
             { part: 0, data: [ 123, 4 ] },
             { part: 1, data: [ 56, 7 ] },
             { part: 2, data: [ 8, 910 ] }
@@ -54,7 +54,7 @@ describe('chunk with array test', function(){
     });
 
     it('merge another data chunked to array', function(){
-        assert.deepEqual(ch.merge(ch.get('yyy')),another);
+        assert.deepStrictEqual(ch.merge(ch.get('yyy')),another);
     });
 
 });

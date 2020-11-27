@@ -12,23 +12,23 @@ describe('Intentional failure test', function(){
     });
 
     it('call make() without size will be use size 100 as default, and if string length is under 100 chars it will be return 1 array length', function() {
-        assert.equal(ch.make('abcdefghijklmnopqrstuvwxyz').length,1);
+        assert.strictEqual(ch.make('abcdefghijklmnopqrstuvwxyz').length,1);
     });
 
     it('call merge() with wrong name will return empty', function(){
-        assert.equal(ch.merge(ch.get('abc')),'');
+        assert.strictEqual(ch.merge(ch.get('abc')),'');
     });
     
     it('call add() with wrong parameter will not saving any data', function(){
         ch.add('xxx');
-        assert.deepEqual(ch.getBody(),{});
+        assert.deepStrictEqual(ch.getBody(),{});
         ch.add({});
-        assert.deepEqual(ch.getBody(),{});
+        assert.deepStrictEqual(ch.getBody(),{});
     });
 
     it('call remove() with wrong name will not removing any data', function(){
         ch.add('qqq','abc').remove([]);
-        assert.deepEqual(ch.get('qqq'),[{data:'abc'}]);
+        assert.deepStrictEqual(ch.get('qqq'),[{data:'abc'}]);
     });
 
     it('getBestSize with split under 0 (negative number) will throw error', function(){

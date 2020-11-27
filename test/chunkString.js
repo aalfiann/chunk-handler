@@ -9,13 +9,13 @@ describe('chunk with string test', function(){
     
     it('make string to chunk', function(){
         var result = ch.make(str,2);
-        assert.deepEqual(result,[ 'th', 'is', ' f', 'ru', 'it', ' i', 's ', 'ma', 'ng', 'o!' ]);
+        assert.deepStrictEqual(result,[ 'th', 'is', ' f', 'ru', 'it', ' i', 's ', 'ma', 'ng', 'o!' ]);
     });
 
     it('merge from chunk back to string', function(){
         var result = ch.make(str,2);
         var chunk = ch.merge(result);
-        assert.deepEqual(chunk,str);
+        assert.deepStrictEqual(chunk,str);
     });
 
     it('save string to chunk handler', function(){
@@ -25,7 +25,7 @@ describe('chunk with string test', function(){
         for(i;i<len;i++) {
             ch.add('xxx',result[i],i);
         };
-        assert.deepEqual(ch.get('xxx'),[
+        assert.deepStrictEqual(ch.get('xxx'),[
             { part: 0, data: 'th' },
             { part: 1, data: 'is' },
             { part: 2, data: ' f' },
@@ -40,7 +40,7 @@ describe('chunk with string test', function(){
     });
 
     it('merge saved data chunk back to original string', function(){
-        assert.equal(ch.merge(ch.get('xxx')),str);
+        assert.strictEqual(ch.merge(ch.get('xxx')),str);
     });
 
     it('add new and save another string chunk', function(){
@@ -50,7 +50,7 @@ describe('chunk with string test', function(){
         for (i;i<len;i++) {
             ch.add('yyy',result[i],i);
         };
-        assert.deepEqual(ch.get('yyy'),[
+        assert.deepStrictEqual(ch.get('yyy'),[
             { part: 0, data: 'th' },
             { part: 1, data: 'is' },
             { part: 2, data: ' f' },
@@ -66,7 +66,7 @@ describe('chunk with string test', function(){
     });
 
     it('merge another data chunked to string', function(){
-        assert.equal(ch.merge(ch.get('yyy')),another);
+        assert.strictEqual(ch.merge(ch.get('yyy')),another);
     });
 
 });

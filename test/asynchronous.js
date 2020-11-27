@@ -15,7 +15,7 @@ describe('asynchronous test', function(){
             var time = chunk.blockingTest();
             // console.log('Blocking start at: '+time);
             // console.log('Blocking ended at: '+Date.now());
-            assert.equal((outside <= time),true);
+            assert.strictEqual((outside <= time),true);
             done();
         });
         var start = Date.now();
@@ -26,7 +26,7 @@ describe('asynchronous test', function(){
     it('make string to chunk', function(done){
         ch.promisify((builder) => {return builder}).then((chunk) => {
             var result = chunk.make(str,2);
-            assert.deepEqual(result,[ 'th', 'is', ' f', 'ru', 'it', ' i', 's ', 'ma', 'ng', 'o!' ]);
+            assert.deepStrictEqual(result,[ 'th', 'is', ' f', 'ru', 'it', ' i', 's ', 'ma', 'ng', 'o!' ]);
             done();
         });
     });
@@ -34,7 +34,7 @@ describe('asynchronous test', function(){
     it('make array to chunk', function(done){
         ch.promisify((builder)=>{return builder}).then((chunk) => {
             var result = chunk.make(arr,2);
-            assert.deepEqual(result,[ [ 1, 2 ], [ 3, 4 ], [ 5, 6 ], [ 7, 8 ], [ 9, 10 ] ]);
+            assert.deepStrictEqual(result,[ [ 1, 2 ], [ 3, 4 ], [ 5, 6 ], [ 7, 8 ], [ 9, 10 ] ]);
             done();
         });
     });

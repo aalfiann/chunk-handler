@@ -28,7 +28,7 @@ describe('store data test', function(){
             ch.add('ccc',data3[z],z);
         };
         
-        assert.deepEqual(ch.get('aaa'),[
+        assert.deepStrictEqual(ch.get('aaa'),[
             { part: 0, data: 'th' },
             { part: 1, data: 'is' },
             { part: 2, data: ' f' },
@@ -40,12 +40,12 @@ describe('store data test', function(){
             { part: 8, data: 'ng' },
             { part: 9, data: 'o!' } 
         ]);
-        assert.deepEqual(ch.get('bbb'),[
+        assert.deepStrictEqual(ch.get('bbb'),[
             { part: 0, data: [ 123, 4 ] },
             { part: 1, data: [ 56, 7 ] },
             { part: 2, data: [ 8, 910 ] } 
         ]);
-        assert.deepEqual(ch.get('ccc'),[
+        assert.deepStrictEqual(ch.get('ccc'),[
             { part: 0, data: [ 1, 22 ] },
             { part: 1, data: [ 333, 4444 ] },
             { part: 2, data: [ 55555, 666666 ] }
@@ -54,7 +54,7 @@ describe('store data test', function(){
 
     it('remove name bbb only', function(){
         ch.remove('bbb');
-        assert.deepEqual(ch.get('aaa'),[
+        assert.deepStrictEqual(ch.get('aaa'),[
             { part: 0, data: 'th' },
             { part: 1, data: 'is' },
             { part: 2, data: ' f' },
@@ -66,8 +66,8 @@ describe('store data test', function(){
             { part: 8, data: 'ng' },
             { part: 9, data: 'o!' } 
         ]);
-        assert.equal(ch.get('bbb'),undefined);
-        assert.deepEqual(ch.get('ccc'),[
+        assert.strictEqual(ch.get('bbb'),undefined);
+        assert.deepStrictEqual(ch.get('ccc'),[
             { part: 0, data: [ 1, 22 ] },
             { part: 1, data: [ 333, 4444 ] },
             { part: 2, data: [ 55555, 666666 ] }
@@ -75,7 +75,7 @@ describe('store data test', function(){
     });
 
     it('display all data', function() {
-        assert.deepEqual(ch.getBody(),{ 
+        assert.deepStrictEqual(ch.getBody(),{ 
             aaa:[ 
                 { part: 0, data: 'th' },
                 { part: 1, data: 'is' },
@@ -98,43 +98,43 @@ describe('store data test', function(){
     
     it('clean all data', function() {
         ch.clean();
-        assert.deepEqual(ch.getBody(),{});
+        assert.deepStrictEqual(ch.getBody(),{});
     });
 
     it('add data with multiple name and with method chained', function(){
         ch.add('yyy','abc').add('yyy','def').add('zzz','abc').add('zzz','def');
-        assert.deepEqual(ch.get('yyy'),[{ data: 'abc' },{ data: 'def' }]);
-        assert.deepEqual(ch.get('zzz'),[{ data: 'abc' },{ data: 'def' }]);
+        assert.deepStrictEqual(ch.get('yyy'),[{ data: 'abc' },{ data: 'def' }]);
+        assert.deepStrictEqual(ch.get('zzz'),[{ data: 'abc' },{ data: 'def' }]);
     });
 
     it('add data with name includes special chars will be sanitized', function(){
         ch.add('xxx & #$%*()123','special chars');
-        assert.deepEqual(ch.get('xxx & #$%*()123'),[{ data: 'special chars' }]);
+        assert.deepStrictEqual(ch.get('xxx & #$%*()123'),[{ data: 'special chars' }]);
     });
 
     it('add data without part still can be saved', function(){
         ch.add('xxx','abc');
-        assert.deepEqual(ch.get('xxx'),[{ data: 'abc' }]);
+        assert.deepStrictEqual(ch.get('xxx'),[{ data: 'abc' }]);
     });
 
     it('merge data with nulled part is no problem', function(){
-        assert.equal(ch.merge([{ part: null, data: 'abc' },{ part: null, data: 'def' }]),'abcdef');
+        assert.strictEqual(ch.merge([{ part: null, data: 'abc' },{ part: null, data: 'def' }]),'abcdef');
     });
 
     it('merge data with nulled part can not be sorted', function(){
-        assert.equal(ch.merge([{ part: null, data: 'def' },{ part: null, data: 'abc' }]),'defabc');
+        assert.strictEqual(ch.merge([{ part: null, data: 'def' },{ part: null, data: 'abc' }]),'defabc');
     });
 
     it('merge data without part is no problem', function(){
-        assert.equal(ch.merge([{ data: 'abc' },{ data: 'def' }]),'abcdef');
+        assert.strictEqual(ch.merge([{ data: 'abc' },{ data: 'def' }]),'abcdef');
     });
 
     it('merge data without part can not be sorted', function(){
-        assert.equal(ch.merge([{ data: 'def' },{ data: 'abc' }]),'defabc');
+        assert.strictEqual(ch.merge([{ data: 'def' },{ data: 'abc' }]),'defabc');
     });
 
     it('merge data with part will be sorted automatically', function(){
-        assert.equal(ch.merge([{ part: 1, data: 'def' },{ part: 0, data: 'abc' }]),'abcdef');
+        assert.strictEqual(ch.merge([{ part: 1, data: 'def' },{ part: 0, data: 'abc' }]),'abcdef');
     });
 
 });
