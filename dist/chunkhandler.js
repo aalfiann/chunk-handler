@@ -76,26 +76,26 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     return r;
   }()({
     1: [function (require, module, exports) {
-      /* ChunkHandler v1.4.0 | (c) 2021 M ABD AZIZ ALFIAN | MIT License | https://github.com/aalfiann/chunk-handler */
-      "use strict";
+      /* ChunkHandler v1.5.0 | (c) 2021 M ABD AZIZ ALFIAN | MIT License | https://github.com/aalfiann/chunk-handler */
+      'use strict';
       /**
        * Chunk Handler Class
        */
 
       var ChunkHandler = /*#__PURE__*/function () {
         /**
-         * Constructor 
-         */
+           * Constructor
+           */
         function ChunkHandler() {
           _classCallCheck(this, ChunkHandler);
 
           this.body = {};
         }
         /**
-         * Determine value is string
-         * @param {*} value
-         * @return {bool} 
-         */
+           * Determine value is string
+           * @param {*} value
+           * @return {bool}
+           */
 
 
         _createClass(ChunkHandler, [{
@@ -104,10 +104,10 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             return typeof value === 'string' || value instanceof String;
           }
           /**
-           * Determine value is array
-           * @param {*} value 
-           * @return {bool}
-           */
+             * Determine value is array
+             * @param {*} value
+             * @return {bool}
+             */
 
         }, {
           key: "isArray",
@@ -119,10 +119,10 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             return value && _typeof(value) === 'object' && value.constructor === Array;
           }
           /**
-           * Determine value is object
-           * @param {*} value 
-           * @return {bool}
-           */
+             * Determine value is object
+             * @param {*} value
+             * @return {bool}
+             */
 
         }, {
           key: "isObject",
@@ -134,10 +134,10 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             return value && _typeof(value) === 'object' && value.constructor === Object;
           }
           /**
-           * Determine value is empty
-           * @param {var} value
-           * @return {bool} 
-           */
+             * Determine value is empty
+             * @param {const} value
+             * @return {bool}
+             */
 
         }, {
           key: "isEmpty",
@@ -145,10 +145,10 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             return value === undefined || value === null || value === '';
           }
           /**
-           * Determine value is empty and array
-           * @param {*} value 
-           * @return {bool}
-           */
+             * Determine value is empty and array
+             * @param {*} value
+             * @return {bool}
+             */
 
         }, {
           key: "isEmptyArray",
@@ -156,10 +156,10 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             return value === undefined || value === null || value.length === 0;
           }
           /**
-           * Determine object value is empty
-           * @param {*} value 
-           * @return {bool}
-           */
+             * Determine object value is empty
+             * @param {*} value
+             * @return {bool}
+             */
 
         }, {
           key: "isEmptyObject",
@@ -167,10 +167,10 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             return value === undefined || value === null || Object.keys(value).length === 0 && value.constructor === Object;
           }
           /**
-           * Blocking test for asynchronous
-           * @param {integer} ms      this is miliseconds value for event block
-           * @return {int}
-           */
+             * Blocking test for asynchronous
+             * @param {integer} ms      this is miliseconds value for event block
+             * @return {int}
+             */
 
         }, {
           key: "blockingTest",
@@ -179,17 +179,17 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             var start = Date.now();
             var time = start + ms;
 
-            while (Date.now() < time) {}
+            while (Date.now() < time) {// empty progress
+            }
 
-            ;
             return start;
           }
           /**
-           * Get best size to chunk
-           * @param {int|string} length       this is the maximum array/string length number
-           * @param {int|string} split        [optional] split value will create maximum (value*10) means if split is 5 then will make array length not more than 50
-           * @return {int} 
-           */
+             * Get best size to chunk
+             * @param {int|string} length       this is the maximum array/string length number
+             * @param {int|string} split        [optional] split value will create maximum (value*10) means if split is 5 then will make array length not more than 50
+             * @return {int}
+             */
 
         }, {
           key: "getBestSize",
@@ -256,10 +256,10 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             }
           }
           /**
-           * Get random number between min and max values
-           * @param {int} min min random value (included)
-           * @param {int} max max random value (included)
-           */
+             * Get random number between min and max values
+             * @param {int} min min random value (included)
+             * @param {int} max max random value (included)
+             */
 
         }, {
           key: "getRandomInt",
@@ -267,11 +267,11 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             return Math.floor(Math.random() * (max - min + 1)) + min;
           }
           /**
-           * Make value to be chunked
-           * @param {string|array} value      this is value to be chunked
-           * @param {string|int} size         [optional] if value is type string then size will make split from letters per size number
-           * @return {array}
-           */
+             * Make value to be chunked
+             * @param {string|array} value      this is value to be chunked
+             * @param {string|int} size         [optional] if value is type string then size will make split from letters per size number
+             * @return {array}
+             */
 
         }, {
           key: "make",
@@ -281,10 +281,10 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             if (!this.isString(value) && !this.isArray(value)) throw new Error('Value must be string or array');
 
             if (this.isString(value)) {
-              var i = 0,
-                  o = 0,
-                  numChunks = Math.ceil(value.length / size),
-                  chunks = new Array(numChunks);
+              var i = 0;
+              var o = 0;
+              var numChunks = Math.ceil(value.length / size);
+              var chunks = new Array(numChunks);
 
               for (i, o; i < numChunks; ++i, o += size) {
                 chunks[i] = value.substr(o, size);
@@ -294,8 +294,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             } else {
               var result = []; // add each chunk to the result
 
-              var x = 0,
-                  len = Math.ceil(value.length / size);
+              var x = 0;
+              var len = Math.ceil(value.length / size);
 
               for (x; x < len; x++) {
                 var start = x * size;
@@ -307,16 +307,16 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             }
           }
           /**
-           * Make aleatory chunks from value
-           * @param {array} value         this is the array to be aleatory chunked 
-           * @param {int} numberOfChunks  the number of chunks that will be created 
-           */
+             * Make aleatory chunks from value
+             * @param {array} value         this is the array to be aleatory chunked
+             * @param {int} numberOfChunks  the number of chunks that will be created
+             */
 
         }, {
           key: "makeAleatory",
           value: function makeAleatory(value, numberOfChunks) {
             var array = value;
-            var result = new Array();
+            var result = new Array([]);
             var chunkSize = parseInt(value.length / numberOfChunks, 10);
             var chunkIndex = 0;
 
@@ -341,18 +341,18 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             return result;
           }
           /**
-           * Merge data chunked
-           * @param {object} data     data is an array from this.get(name) 
-           * @return {mixed}          could be string or array
-           */
+             * Merge data chunked
+             * @param {object} data     data is an array from this.get(name)
+             * @return {mixed}          could be string or array
+             */
 
         }, {
           key: "merge",
           value: function merge(data) {
             if (!this.isArray(data) && this.isEmptyArray(data)) return '';
             var file = '';
-            var i = 0,
-                len = data.length;
+            var i = 0;
+            var len = data.length;
 
             if (!this.isEmpty(data[0].data)) {
               if (!this.isEmpty(data[0].part)) {
@@ -389,12 +389,12 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             return file;
           }
           /**
-           * Add new or replace data chunk by it's name
-           * @param {string} name 
-           * @param {object} data
-           * @param {int} part
-           * @return {this}
-           */
+             * Add new or replace data chunk by it's name
+             * @param {string} name
+             * @param {object} data
+             * @param {int} part
+             * @return {this}
+             */
 
         }, {
           key: "add",
@@ -402,7 +402,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             var part = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
 
             if (this.isString(name)) {
-              name = name.replace(/[^A-Z0-9]/ig, "_");
+              name = name.replace(/[^A-Z0-9]/ig, '_');
 
               if (data) {
                 if (!this.isEmpty(part)) {
@@ -411,24 +411,24 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
                   if (this.isEmpty(this.body[name])) {
                     this.body[name] = [];
                     this.body[name].push({
-                      'part': part,
-                      'data': data
+                      part: part,
+                      data: data
                     });
                   } else {
                     this.body[name].push({
-                      'part': part,
-                      'data': data
+                      part: part,
+                      data: data
                     });
                   }
                 } else {
                   if (this.isEmpty(this.body[name])) {
                     this.body[name] = [];
                     this.body[name].push({
-                      'data': data
+                      data: data
                     });
                   } else {
                     this.body[name].push({
-                      'data': data
+                      data: data
                     });
                   }
                 }
@@ -438,24 +438,24 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             return this;
           }
           /**
-           * Remove data chunk by name
-           * @param {string} name
-           * @return {this}
-           */
+             * Remove data chunk by name
+             * @param {string} name
+             * @return {this}
+             */
 
         }, {
           key: "remove",
           value: function remove(name) {
             if (this.isString(name)) {
-              name = name.replace(/[^A-Z0-9]/ig, "_");
+              name = name.replace(/[^A-Z0-9]/ig, '_');
               delete this.body[name];
             }
 
             return this;
           }
           /**
-           * Cleanup all data chunk
-           */
+             * Cleanup all data chunk
+             */
 
         }, {
           key: "clean",
@@ -464,21 +464,21 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             return this;
           }
           /**
-           * Get data chunk by name
-           * @param {string} name
-           * @return {string} 
-           */
+             * Get data chunk by name
+             * @param {string} name
+             * @return {string}
+             */
 
         }, {
           key: "get",
           value: function get(name) {
-            name = name.replace(/[^A-Z0-9]/ig, "_");
+            name = name.replace(/[^A-Z0-9]/ig, '_');
             return this.body[name];
           }
           /**
-           * Get all data chunk
-           * @return {object}
-           */
+             * Get all data chunk
+             * @return {object}
+             */
 
         }, {
           key: "getBody",
@@ -486,10 +486,10 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             return this.body;
           }
           /**
-           * Make asynchronous process with Promise
-           * @param {*} fn
-           * @return {this} 
-           */
+             * Make asynchronous process with Promise
+             * @param {*} fn
+             * @return {this}
+             */
 
         }, {
           key: "promisify",

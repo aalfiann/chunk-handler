@@ -1,5 +1,6 @@
 # chunk-handler
-[![NPM](https://nodei.co/npm/chunk-handler.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/chunk-handler/)  
+[![NPM](https://nodei.co/npm/chunk-handler.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/chunk-handler/)
+[![js-semistandard-style](https://raw.githubusercontent.com/standard/semistandard/master/badge.svg)](https://github.com/standard/semistandard)  
   
 [![npm version](https://img.shields.io/npm/v/chunk-handler.svg?style=flat-square)](https://www.npmjs.org/package/chunk-handler)
 [![Build Status](https://travis-ci.org/aalfiann/chunk-handler.svg?branch=master)](https://travis-ci.org/aalfiann/chunk-handler)
@@ -25,11 +26,11 @@ $ npm install chunk-handler
 <script src="https://cdn.jsdelivr.net/npm/chunk-handler@1/dist/chunkhandler.min.js"></script>
 
 <!-- Get patch fixes within a minor version -->
-<script src="https://cdn.jsdelivr.net/npm/chunk-handler@1.4/dist/chunkhandler.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chunk-handler@1.5/dist/chunkhandler.min.js"></script>
 
 <!-- Get a specific version -->
 <!-- Recommended for production sites! -->
-<script src="https://cdn.jsdelivr.net/npm/chunk-handler@1.4.0/dist/chunkhandler.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chunk-handler@1.5.0/dist/chunkhandler.min.js"></script>
 ```
 
 ## Usage
