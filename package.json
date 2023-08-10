@@ -1,8 +1,9 @@
 {
   "name": "chunk-handler",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "The Chunk Handler for string and array object in NodeJS or Browser",
   "main": "src/chunkhandler.js",
+  "types": "src/chunkhandler.d.ts",
   "scripts": {
     "browserify": "browserify src/chunkhandler.js --s ChunkHandler -o dist/chunkhandler.js",
     "babel": "babel dist/chunkhandler.js --out-file dist/chunkhandler.js",
@@ -27,21 +28,21 @@
   },
   "homepage": "https://github.com/aalfiann/chunk-handler#readme",
   "devDependencies": {
-    "@babel/cli": "^7.12.13",
-    "@babel/core": "^7.12.13",
-    "@babel/preset-env": "^7.12.13",
+    "@babel/cli": "^7.22.10",
+    "@babel/core": "^7.22.10",
+    "@babel/preset-env": "^7.22.10",
     "browserify": "^17.0.0",
-    "coveralls": "^3.1.0",
-    "mocha": "^6.2.3",
+    "coveralls": "^3.1.1",
+    "mocha": "^10.2.0",
     "mocha-lcov-reporter": "^1.3.0",
     "nyc": "^14.1.1",
-    "semistandard": "^16.0.0",
-    "uglify-js": "^3.12.7"
+    "semistandard": "^16.0.1",
+    "uglify-js": "^3.17.4"
   },
-  "dependencies": {},
   "semistandard": {
     "ignore": [
-      "dist/*"
+      "dist/*",
+      "*.ts"
     ]
   }
 }

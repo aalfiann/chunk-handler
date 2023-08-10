@@ -26,11 +26,11 @@ $ npm install chunk-handler
 <script src="https://cdn.jsdelivr.net/npm/chunk-handler@1/dist/chunkhandler.min.js"></script>
 
 <!-- Get patch fixes within a minor version -->
-<script src="https://cdn.jsdelivr.net/npm/chunk-handler@1.5/dist/chunkhandler.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chunk-handler@1.6/dist/chunkhandler.min.js"></script>
 
 <!-- Get a specific version -->
 <!-- Recommended for production sites! -->
-<script src="https://cdn.jsdelivr.net/npm/chunk-handler@1.5.0/dist/chunkhandler.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chunk-handler@1.6.0/dist/chunkhandler.min.js"></script>
 ```
 
 ## Usage
